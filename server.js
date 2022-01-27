@@ -2,7 +2,15 @@ const express = require("express");
 const app = express();
 const fs=require("fs")
 const fetch = require('node-fetch');
+const dotenv = require("dotenv")
+const uuid= require("uuid")
 
+dotenv.config({ path: './config.env' });
+const port = process.env.PORT || 3000;
+
+
+
+require("./database/db");
 
 
 app.get("/", (req, res)=>{
@@ -24,11 +32,13 @@ const createJson= (filePath, data)=>{
 
 
 app.get("/contests/codeforces", async(req, res)=>{
-    const response= await fetch('https://codeforces.com/api/contest.list')
+    const response= await fetch('https://kontests.net/api/v1/codeforces')
     const resData= await response.json();
     // console.log(resData);
 
-    createJson("codeforces",resData );
+
+
+    // createJson("codeforces",resData );
     res.status(200).send({resData})
 })
 
@@ -40,6 +50,6 @@ app.get("/contests/codeforces", async(req, res)=>{
 // })
 
 
-app.listen(3000, () =>{
-    console.log("Server started at 3000");
+app.listen(port, () =>{
+    console.log(`Server started at ${port}`);
 })
