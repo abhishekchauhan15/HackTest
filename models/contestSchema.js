@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 
 const contestSchema = new mongoose.Schema({
+  _id: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: [true, "Name is required"],
@@ -19,16 +23,12 @@ const contestSchema = new mongoose.Schema({
     required: [true, "End time is required"],
   },
   duration: {
-    type: Number,
+    type: String,
     required: [true, "Duration is required"],
   },
   in_24_hours: {
-    type: Boolean,
+    type: String,
     required: [true, "In 24 house is required"],
-    validate(value) {
-      if (!validator.isBoolean(value))
-        throw new Error("In 24 hours must be a boolean");
-    },
   },
   status: {
     type: String,

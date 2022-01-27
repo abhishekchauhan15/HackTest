@@ -6,42 +6,42 @@ info:
 servers:
   - url: "http://api.example.com"
 paths:
-  /restaurants:
+  /contests/codeforces:
     get:
-      summary: Restaurants
-      operationId: getRestaurants
+      summary: contests/codeforces
+      operationId: getcontests/codeforces
       tags:
-        - Restaurant
+        - contests/codeforces
       responses:
-        "200":
-          description: Restaurant
+        "200": contests/codeforces
+          description: 
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/RestaurantListing"
+                $ref: "#/components/schemas/HacTestListing"
     post:
-      summary: Restaurant
-      operationId: addRestaurant
+      summary: contests/codeforces
+      operationId: addcontests/codeforces
       tags:
-        - Restaurant
+        - contests/codeforces
       requestBody:
         required: true
-        description: Restaurant
+        description: contests/codeforces
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Restaurant"
+              $ref: "#/components/schemas/contests/codeforces"
       responses:
         "201":
-          description: Restaurant
+          description: contests/codeforces
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Restaurant"
-  /restaurants/{id}:
+                $ref: "#/components/schemas/contests/codeforces"
+  /contests/codeforces/{id}:
     get:
-      summary: Restaurant
-      operationId: getRestaurant
+      summary: contests/codeforces
+      operationId: getcontests/codeforces
       parameters:
         - name: id
           in: path
@@ -50,17 +50,17 @@ paths:
           schema:
             type: string
       tags:
-        - Restaurant
+        - contests/codeforces
       responses:
         "200":
-          description: Restaurant
+          description: contests/codeforces
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Restaurant"
     put:
-      summary: Restaurant
-      operationId: updateRestaurant
+      summary: contests/codeforces
+      operationId: updatecontests/codeforces
       parameters:
         - name: id
           in: path
@@ -69,19 +69,19 @@ paths:
           schema:
             type: string
       tags:
-        - Restaurant
+        - contests/codeforces
       requestBody:
-        description: Restaurant
+        description: contests/codeforces
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Restaurant"
+              $ref: "#/components/schemas/contests/codeforces"
       responses:
         "204":
-          description: Restaurant
+          description: contests/codeforces
     delete:
-      summary: Restaurant
-      operationId: deleteRestaurant
+      summary: contests/codeforces
+      operationId: deletecontests/codeforces
       parameters:
         - name: id
           in: path
@@ -90,32 +90,48 @@ paths:
           schema:
             type: string
       tags:
-        - Restaurant
+        - contests/codeforces
       responses:
         "204":
-          description: Restaurant
+          description: contests/codeforces
 components:
   schemas:
-    RestaurantListing:
+    HacTestListing:
       type: array
       items:
-        $ref: "#/components/schemas/Restaurant"
-    Restaurant:
+        $ref: "#/components/schemas/contests/codeforces"
+    contests/codeforces:
       type: object
       required:
         - name
-        - cuisine
-        - hasTakeout
+        - url
+        - start_time
+        - end_time
+        - duration
+        - in_24_hours
+        - status
       properties:
         id:
           description: Unique identifier for the restaurant
           type: string
         name:
-          description: The name of the restaurant.
+          description: The name of the contest.
           type: string
-        cuisine:
-          description: The cuisine of the restaurant.
+        url:
+          description: Url of the contest.
           type: string
-        hasTakeout:
-          description: "Either the actual menu as a structured representation, as text, or a URL of the menu."
+        start_time:
+          description: Starting time of the contest.
+          type: date
+        end_time:
+          description: Ending time of the contest.
+          type: date
+        duration:
+          description: Duration of the contest.
+          type: number
+        in_24_hours: Next contest in 24 hours.
+          description: 
           type: boolean
+        status:
+          description: "status of of the contest."
+          type: string
