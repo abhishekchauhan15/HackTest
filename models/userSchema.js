@@ -34,5 +34,5 @@ const userSchema = new mongoose.Schema({
 
 const cfContests = mongoose.model("contest/codeforces", userSchema);
 
-module.exports = userSchema;
+module.exports = cfContests;
 
