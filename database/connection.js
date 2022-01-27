@@ -1,8 +1,4 @@
 const mongoose = require("mongoose");
-// const User = require("../models/userSchema");
-
-
-
 
 const db = process.env.DATABASE;
 mongoose
