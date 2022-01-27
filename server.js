@@ -12,6 +12,8 @@ const port = process.env.PORT || 3000;
 
 require("./database/db");
 
+const cfControllers = require("./models/userSchema");
+
 
 app.get("/", (req, res)=>{
     
@@ -19,15 +21,15 @@ app.get("/", (req, res)=>{
 
 })
 
-const createJson= (filePath, data)=>{
-     const dataJson=JSON.stringify(data, null, 2)
-     fs.writeFile(`./json/${filePath}.json`,dataJson,  (error)=>{
-     if(error)
-     console.log(error);
-    })
+// const createJson= (filePath, data)=>{
+//      const dataJson=JSON.stringify(data, null, 2)
+//      fs.writeFile(`./json/${filePath}.json`,dataJson,  (error)=>{
+//      if(error)
+//      console.log(error);
+//     })
 
-    console.log("ab done");
-}
+//     console.log("ab done");
+// }
 
 
 
@@ -36,7 +38,8 @@ app.get("/contests/codeforces", async(req, res)=>{
     const resData= await response.json();
     // console.log(resData);
 
-
+    // const data=resData.data.map(item=>{
+    cfContest.save();
 
     // createJson("codeforces",resData );
     res.status(200).send({resData})
