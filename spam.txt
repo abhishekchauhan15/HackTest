@@ -1,2 +1,0 @@
---handel multiple entry
--- how to add multipe schema in postman yaml  
