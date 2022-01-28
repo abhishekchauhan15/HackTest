@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
-const multer = require("multer");
 const contestRouter = require("./routers/contest");
 const hackathonRouter = require("./routers/hackathons");
 const path = require('path');

@@ -47,6 +47,258 @@ router.get("/contests", async (req, res) => {
   }
 });
 
+router.get("/contests/codeforces", async (req, res) => {
+  const url = "https://kontests.net/api/v1/codeforces";
+  const data = await apiCalling(url);
+
+  try {
+    data.map((e, i) => {
+      const newContest = new ContestsDetails({
+        _id: uuid.v4(),
+        name: e.name,
+        url: e.url,
+        start_time: e.start_time,
+        end_time: e.end_time,
+        duration: e.duration,
+        in_24_hours: e.in_24_hours,
+        status: e.status,
+      });
+      newContest.save();
+      // console.log("saved");
+    });
+
+    const contestData = await ContestsDetails.find();
+    // res.json(contestData);
+    res.status(200).json(contestData);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get("/contests/codeforces_gym", async (req, res) => {
+  const url = "https://kontests.net/api/v1/codeforces_gym";
+  const data = await apiCalling(url);
+
+  try {
+    data.map((e, i) => {
+      const newContest = new ContestsDetails({
+        _id: uuid.v4(),
+        name: e.name,
+        url: e.url,
+        start_time: e.start_time,
+        end_time: e.end_time,
+        duration: e.duration,
+        in_24_hours: e.in_24_hours,
+        status: e.status,
+      });
+      newContest.save();
+      // console.log("saved");
+    });
+
+    const contestData = await ContestsDetails.find();
+    // res.json(contestData);
+    res.status(200).json(contestData);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get("/contests/top_coder", async (req, res) => {
+  const url = "https://kontests.net/api/v1/top_coder";
+  const data = await apiCalling(url);
+
+  try {
+    data.map((e, i) => {
+      const newContest = new ContestsDetails({
+        _id: uuid.v4(),
+        name: e.name,
+        url: e.url,
+        start_time: e.start_time,
+        end_time: e.end_time,
+        duration: e.duration,
+        in_24_hours: e.in_24_hours,
+        status: e.status,
+      });
+      newContest.save();
+      // console.log("saved");
+    });
+
+    const contestData = await ContestsDetails.find();
+    // res.json(contestData);
+    res.status(200).json(contestData);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get("/contests/at_coder", async (req, res) => {
+  const url = "https://kontests.net/api/v1/at_coder";
+  const data = await apiCalling(url);
+
+  try {
+    data.map((e, i) => {
+      const newContest = new ContestsDetails({
+        _id: uuid.v4(),
+        name: e.name,
+        url: e.url,
+        start_time: e.start_time,
+        end_time: e.end_time,
+        duration: e.duration,
+        in_24_hours: e.in_24_hours,
+        status: e.status,
+      });
+      newContest.save();
+      // console.log("saved");
+    });
+
+    const contestData = await ContestsDetails.find();
+    // res.json(contestData);
+    res.status(200).json(contestData);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get("/contests/code_chef", async (req, res) => {
+  const url = "https://kontests.net/api/v1/code_chef";
+  const data = await apiCalling(url);
+
+  try {
+    data.map((e, i) => {
+      const newContest = new ContestsDetails({
+        _id: uuid.v4(),
+        name: e.name,
+        url: e.url,
+        start_time: e.start_time,
+        end_time: e.end_time,
+        duration: e.duration,
+        in_24_hours: e.in_24_hours,
+        status: e.status,
+      });
+      newContest.save();
+      // console.log("saved");
+    });
+
+    const contestData = await ContestsDetails.find();
+    // res.json(contestData);
+    res.status(200).json(contestData);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get("/contests/cs_academy", async (req, res) => {
+  const url = "https://kontests.net/api/v1/cs_academy";
+  const data = await apiCalling(url);
+
+  try {
+    data.map((e, i) => {
+      const newContest = new ContestsDetails({
+        _id: uuid.v4(),
+        name: e.name,
+        url: e.url,
+        start_time: e.start_time,
+        end_time: e.end_time,
+        duration: e.duration,
+        in_24_hours: e.in_24_hours,
+        status: e.status,
+      });
+      newContest.save();
+      // console.log("saved");
+    });
+
+    const contestData = await ContestsDetails.find();
+    // res.json(contestData);
+    res.status(200).json(contestData);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get("/contests/hacker_rank", async (req, res) => {
+  const url = "https://kontests.net/api/v1/hacker_rank";
+  const data = await apiCalling(url);
+
+  try {
+    data.map((e, i) => {
+      const newContest = new ContestsDetails({
+        _id: uuid.v4(),
+        name: e.name,
+        url: e.url,
+        start_time: e.start_time,
+        end_time: e.end_time,
+        duration: e.duration,
+        in_24_hours: e.in_24_hours,
+        status: e.status,
+      });
+      newContest.save();
+      // console.log("saved");
+    });
+
+    const contestData = await ContestsDetails.find();
+    // res.json(contestData);
+    res.status(200).json(contestData);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get("/contests/hacker_earth", async (req, res) => {
+  const url = "https://kontests.net/api/v1/hacker_earth";
+  const data = await apiCalling(url);
+
+  try {
+    data.map((e, i) => {
+      const newContest = new ContestsDetails({
+        _id: uuid.v4(),
+        name: e.name,
+        url: e.url,
+        start_time: e.start_time,
+        end_time: e.end_time,
+        duration: e.duration,
+        in_24_hours: e.in_24_hours,
+        status: e.status,
+      });
+      newContest.save();
+      // console.log("saved");
+    });
+
+    const contestData = await ContestsDetails.find();
+    // res.json(contestData);
+    res.status(200).json(contestData);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.get("/contests/kick_start", async (req, res) => {
+  const url = "https://kontests.net/api/v1/kick_start";
+  const data = await apiCalling(url);
+
+  try {
+    data.map((e, i) => {
+      const newContest = new ContestsDetails({
+        _id: uuid.v4(),
+        name: e.name,
+        url: e.url,
+        start_time: e.start_time,
+        end_time: e.end_time,
+        duration: e.duration,
+        in_24_hours: e.in_24_hours,
+        status: e.status,
+      });
+      newContest.save();
+      // console.log("saved");
+    });
+
+    const contestData = await ContestsDetails.find();
+    // res.json(contestData);
+    res.status(200).json(contestData);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 //creating the new contest in the database
 router.post("/contests", async (req, res) => {
   try {
@@ -80,7 +332,7 @@ router.get("/contests/:id", async (req, res) => {
   }
 });
 
-//update contest by id by writing all the feilds + updated one also 
+//update contest by id by writing all the feilds + updated one also
 router.put("/contests/:id", async (req, res) => {
   try {
     const contestId = req.params.id;
@@ -137,7 +389,6 @@ router.delete("/contests/:id", async (req, res) => {
     res.status(500).send(error);
   }
 });
-
 
 //updating the contest by id py giving the update on particula feild
 router.patch("/contests/:id", async (req, res) => {
@@ -210,5 +461,9 @@ router.get("/contests/leetcode/:id", async (req, res) => {
     res.status(500).send(error);
   }
 });
+
+
+
+
 
 module.exports = router;
