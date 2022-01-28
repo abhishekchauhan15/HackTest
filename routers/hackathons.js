@@ -47,4 +47,38 @@ router.get("/hackathon", async (req, res) => {
   }
 });
 
+//creating the new contest in the database
+router.post("/hackathon", async (req, res) => {
+  try {
+    // console.log(req.body);
+    const newContest = new ContestsDetails(req.body);
+    const createContest = await newContest.save();
+
+    res.status(201).send(createContest);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
+//get contest by id
+router.get("/hackathon/:id", async (req, res) => {
+  // console.log(req.params.id);
+  try {
+    const contestId = req.params.id;
+    console.log(contestId);
+    const contestData = await ContestsDetails.findById(contestId);
+
+    if (!contestData) {
+      return res
+        .status(404)
+        .send("The contest with the given ID was not found");
+    }
+
+    res.status(200).json(contestData);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
+
 module.exports = router;
