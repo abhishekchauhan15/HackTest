@@ -1,2 +1,2 @@
---get id not working 
---handel multiple entry 
+--handel multiple entry
+-- how to add multipe schema in postman yaml  

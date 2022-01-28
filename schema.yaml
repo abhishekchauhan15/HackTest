@@ -8,19 +8,19 @@ servers:
 paths:
   /contests:
     get:
-      summary: Returns details about a contest
+      summary: Details about all contest
       operationId: getcontests
       tags:
         - contests
       responses:
         "200":
-          description:
+          description: done
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/HacTestListing"
+                $ref: "#/models/schema"
     post:
-      summary: contests
+      summary: creating the new contest 
       operationId: addcontests
       tags:
         - contests
@@ -30,17 +30,17 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/contests"
+              $ref: "#/models/schema"
       responses:
         "201":
           description: contests
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/contests"
+                $ref: "#/models/schema"
   /contests/{id}:
     get:
-      summary: contests
+      summary: get the contests by its id 
       operationId: getcontests
       parameters:
         - name: id
@@ -57,9 +57,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Restaurant"
+                $ref: "#/models/schema"
     put:
-      summary: contests
+      summary: update the contests
       operationId: updatecontests
       parameters:
         - name: id
@@ -75,7 +75,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/contests"
+              $ref: "#/models/schema"
       responses:
         "204":
           description: contests
@@ -94,12 +94,27 @@ paths:
       responses:
         "204":
           description: contests
+    patch:
+      summary: update a contests
+      operationId: updatecontests
+      parameters:
+        - name: id
+          in: path
+          description: The unique id.
+          required: true
+          schema:
+            type: string
+      tags:
+        - contests
+      responses:
+        "204":
+          description: contests
 components:
   schemas:
     HacTestListing:
       type: array
       items:
-        $ref: "#/components/schemas/contests"
+        $ref: "#/models/schema"
     contests:
       type: object
       required:
@@ -130,9 +145,12 @@ components:
         duration:
           description: Duration of the contest.
           type: string
-        in_24_hours: Next contest in 24 hours.
-          description: 
+        in_24_hours: 
+          description: Next contest in 24 hours.
           type: string
         status:
           description: "status of of the contest."
           type: string
+
+
+

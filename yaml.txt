@@ -3,7 +3,7 @@ info:
   version: '1.0.0'
   title: 'HackTest API'
 servers:
-  - url: 'localhost:5000'
+  - url: 'localhost:3000'
 paths:
   /user:
     get:
@@ -39,41 +39,16 @@ paths:
                 $ref: '#/components/schemas/Error'
 components:
   schemas:
-    contest:
+    User:
       type: object
       required:
-        - _id
+        - id
         - name
-        - url
-        - start_time
-        - end_time
-        - duration
-        - in_24_hours
-        - status
       properties:
         id:
-          description: Unique identifier for the restaurant
-          type: string
+          type: integer
+          format: int64
         name:
-          description: The name of the contest.
-          type: string
-        url:
-          description: Url of the contest.
-          type: string
-        start_time:
-          description: Starting time of the contest.
-          type: string
-        end_time:
-          description: Ending time of the contest.
-          type: string
-        duration:
-          description: Duration of the contest.
-          type: string
-        in_24_hours: 
-           description: Next contest in 24 hours.
-           type: string
-        status:
-          description: "status of of the contest."
           type: string
         tag:
           type: string
