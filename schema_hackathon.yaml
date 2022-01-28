@@ -1,0 +1,180 @@
+openapi: 3.0.0
+info:
+  version: v1.0.0
+  title: HackTest
+  description: "This is an API for latest contest and hackathon."
+servers:
+  - url: "localhost:5000"
+paths:
+  /hackathon:
+    get:
+      summary: Details about all contest
+      operationId: gethackathon
+      tags:
+        - hackathon
+      responses:
+        "200":
+          description: done
+          content:
+            application/json:
+              schema:
+                $ref: "#/models/schema"
+    post:
+      summary: creating the new hackathon 
+      operationId: addhackathon
+      tags:
+        - hackathon
+      requestBody:
+        required: true
+        description: hackathon
+        content:
+          application/json:
+            schema:
+              $ref: "#/models/schema"
+      responses:
+        "201":
+          description: hackathon
+          content:
+            application/json:
+              schema:
+                $ref: "#/models/schema"
+  /contests/{id}:
+    get:
+      summary: get the hackathon by its id 
+      operationId: gethackathon
+      parameters:
+        - name: id
+          in: path
+          description: The unique id.
+          required: true
+          schema:
+            type: string
+      tags:
+        - hackathon
+      responses:
+        "200":
+          description: hackathon
+          content:
+            application/json:
+              schema:
+                $ref: "#/models/schema"
+    put:
+      summary: update the hackathon
+      operationId: updatehackathon
+      parameters:
+        - name: id
+          in: path
+          description: The unique id.
+          required: true
+          schema:
+            type: string
+      tags:
+        - hackathon
+      requestBody:
+        description: hackathon
+        content:
+          application/json:
+            schema:
+              $ref: "#/models/schema"
+      responses:
+        "204":
+          description: hackathon
+    delete:
+      summary: hackathon
+      operationId: deletehackathon
+      parameters:
+        - name: id
+          in: path
+          description: The unique id.
+          required: true
+          schema:
+            type: string
+      tags:
+        - hackathon
+      responses:
+        "204":
+          description: hackathon
+    patch:
+      summary: update a hackathon
+      operationId: updatehackathon
+      parameters:
+        - name: id
+          in: path
+          description: The unique id.
+          required: true
+          schema:
+            type: string
+      tags:
+        - hackathon
+      responses:
+        "204":
+          description: hackathon
+components:
+  schemas:
+    HacTestListing:
+      type: array
+      items:
+        $ref: "#/models/schema"
+    contests:
+      type: object
+      required:
+        - _id
+        - name
+        - url
+        - start_time
+        - end_time
+        - duration
+        - in_24_hours
+        - status
+      properties:
+        id:
+          description: Unique identifier for the hackathon.
+          type: number
+        name:
+          description: The title of the hackathon.
+          type: string
+        open_state:
+          description: The open state of hackathon.
+          type: string
+        thumbnail_url:
+          description: The thumbnail url of the hackathon.
+          type: string
+        analytics_identifier:
+          description: The analytics identifier of the hackathon.
+          type: string
+        url:
+          description: The url of the hackathon.
+          type: string
+        time_left_to_submission: 
+          description: Time left for the submission of the hackathon.
+          type: string
+        submission_period_dates:
+          description: Submission period dates of the hackathon.
+          type: string
+        prize_amount:
+          description: Prize amount of the hackathon.
+          type: string
+        registration_count: 
+          description: No of registration for the hackathon.
+          type: number
+        featured:
+          description: "Featured."
+          type: boolean
+        organization_name:
+          description: Name of the organization.
+          type: string
+        winners_announced:
+          description: "Winners of the hackathon."
+          type: boolean
+        submission_gallery_url:
+          description: submission gallery url of the hackathon.
+          type: string
+        start_a_submission_url:
+          description: start a submission of the hackathon.  
+          type: string
+        invite_only:
+          description: ""
+          type: boolean
+
+
+
