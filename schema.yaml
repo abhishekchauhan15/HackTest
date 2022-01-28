@@ -4,44 +4,44 @@ info:
   title: HackTest
   description: "This is an API for latest contest and hackathons."
 servers:
-  - url: "http://api.example.com"
+  - url: "localhost:5000"
 paths:
-  /contests/codeforces:
+  /contests:
     get:
-      summary: contests/codeforces
-      operationId: getcontests/codeforces
+      summary: Returns details about a contest
+      operationId: getcontests
       tags:
-        - contests/codeforces
+        - contests
       responses:
-        "200": contests/codeforces
-          description: 
+        "200":
+          description:
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/HacTestListing"
     post:
-      summary: contests/codeforces
-      operationId: addcontests/codeforces
+      summary: contests
+      operationId: addcontests
       tags:
-        - contests/codeforces
+        - contests
       requestBody:
         required: true
-        description: contests/codeforces
+        description: contests
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/contests/codeforces"
+              $ref: "#/components/schemas/contests"
       responses:
         "201":
-          description: contests/codeforces
+          description: contests
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/contests/codeforces"
-  /contests/codeforces/{id}:
+                $ref: "#/components/schemas/contests"
+  /contests/{id}:
     get:
-      summary: contests/codeforces
-      operationId: getcontests/codeforces
+      summary: contests
+      operationId: getcontests
       parameters:
         - name: id
           in: path
@@ -50,17 +50,17 @@ paths:
           schema:
             type: string
       tags:
-        - contests/codeforces
+        - contests
       responses:
         "200":
-          description: contests/codeforces
+          description: contests
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/Restaurant"
     put:
-      summary: contests/codeforces
-      operationId: updatecontests/codeforces
+      summary: contests
+      operationId: updatecontests
       parameters:
         - name: id
           in: path
@@ -69,19 +69,19 @@ paths:
           schema:
             type: string
       tags:
-        - contests/codeforces
+        - contests
       requestBody:
-        description: contests/codeforces
+        description: contests
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/contests/codeforces"
+              $ref: "#/components/schemas/contests"
       responses:
         "204":
-          description: contests/codeforces
+          description: contests
     delete:
-      summary: contests/codeforces
-      operationId: deletecontests/codeforces
+      summary: contests
+      operationId: deletecontests
       parameters:
         - name: id
           in: path
@@ -90,19 +90,20 @@ paths:
           schema:
             type: string
       tags:
-        - contests/codeforces
+        - contests
       responses:
         "204":
-          description: contests/codeforces
+          description: contests
 components:
   schemas:
     HacTestListing:
       type: array
       items:
-        $ref: "#/components/schemas/contests/codeforces"
-    contests/codeforces:
+        $ref: "#/components/schemas/contests"
+    contests:
       type: object
       required:
+        - _id
         - name
         - url
         - start_time
@@ -122,16 +123,16 @@ components:
           type: string
         start_time:
           description: Starting time of the contest.
-          type: date
+          type: string
         end_time:
           description: Ending time of the contest.
-          type: date
+          type: string
         duration:
           description: Duration of the contest.
-          type: number
+          type: string
         in_24_hours: Next contest in 24 hours.
           description: 
-          type: boolean
+          type: string
         status:
           description: "status of of the contest."
           type: string

@@ -1,7 +1,9 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
+const multer  = require('multer')
 const contestRouter = require("./routers/contest");
+const hackathonRouter = require("./routers/hackathons");
 
 dotenv.config({ path: "./config.env" });
 const port = process.env.PORT || 3000;
@@ -11,6 +13,7 @@ require("./database/connection");
 
 app.use(express.json());
 app.use(contestRouter);
+app.use(hackathonRouter);
 
 app.get("/", (req, res) => {
   res.send("hi form the server");

@@ -1,7 +1,9 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 
-const contestSchema = new mongoose.Schema({
+
+
+const lccontestSchema = new mongoose.Schema({
   _id: {
     type: String,
     required: true,
@@ -36,6 +38,5 @@ const contestSchema = new mongoose.Schema({
   },
 });
 
-const Contest = new mongoose.model("Contest", contestSchema);
-
-module.exports = Contest;
+const leetcodeContest = new mongoose.model("leetcodeContest", lccontestSchema);
+module.exports =  leetcodeContest ;

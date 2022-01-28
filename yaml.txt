@@ -1,0 +1,96 @@
+openapi: 3.0.0
+info:
+  version: '1.0.0'
+  title: 'HackTest API'
+servers:
+  - url: 'localhost:5000'
+paths:
+  /user:
+    get:
+      summary: 'Sample endpoint: Returns details about a particular user'
+      operationId: listUser
+      tags:
+        - user
+      parameters:
+        - name: id
+          in: query
+          description: ID of the user
+          required: true
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: 'Sample response: Details about a user by ID'
+          headers:
+            x-next:
+              description: A link to the next page of responses
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        default:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    contest:
+      type: object
+      required:
+        - _id
+        - name
+        - url
+        - start_time
+        - end_time
+        - duration
+        - in_24_hours
+        - status
+      properties:
+        id:
+          description: Unique identifier for the restaurant
+          type: string
+        name:
+          description: The name of the contest.
+          type: string
+        url:
+          description: Url of the contest.
+          type: string
+        start_time:
+          description: Starting time of the contest.
+          type: string
+        end_time:
+          description: Ending time of the contest.
+          type: string
+        duration:
+          description: Duration of the contest.
+          type: string
+        in_24_hours: 
+           description: Next contest in 24 hours.
+           type: string
+        status:
+          description: "status of of the contest."
+          type: string
+        tag:
+          type: string
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
+security:
+  - BasicAuth: []
