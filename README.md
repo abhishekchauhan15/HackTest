@@ -25,11 +25,11 @@ Hackathons + Contests => Hack Test
 
     - > /codeforces
     - > /codeforces_gym
-    - > /top_coder
-    - > /code_chef
-    - > /hacker_rank
-    - > /hacker_earth
-    - > /kick_start
+    - > /topcoder
+    - > /codechef
+    - > /hackerrank
+    - > /hackerearth
+    - > /kickstart
     - > /leetcode
 
 <hr>
