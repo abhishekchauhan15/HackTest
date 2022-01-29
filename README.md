@@ -1,5 +1,7 @@
 # Hack Test API
 
+![Hacktest-Logo](https://user-images.githubusercontent.com/81156510/151658124-9d1135d0-9b11-45cf-b45a-71fce68ab7de.png
+
 Hackathons + Contests => Hack Test
 
 **Website:** https://hacktestapi.herokuapp.com/
