@@ -1,6 +1,5 @@
 # Hack Test API
-
-![Hacktest-Logo](https://user-images.githubusercontent.com/81156510/151658124-9d1135d0-9b11-45cf-b45a-71fce68ab7de.png
+![Hacktest-Logo](https://user-images.githubusercontent.com/81156510/151658225-7c2df2c6-a9ab-454e-991c-62eaf730d96c.png)
 
 Hackathons + Contests => Hack Test
 
@@ -9,6 +8,7 @@ Hackathons + Contests => Hack Test
 **Workspace:** https://www.postman.com/satellite-geoscientist-84411763/workspace/hacktest/collection/18446656-d9d6a99a-8ec4-4c8d-adae-149cf1bb1239?ctx=documentation
 
 **Video:** https://youtu.be/N4EpjLnvJPk
+![HackTestAPI-Thumbnail](https://user-images.githubusercontent.com/81156510/151658246-c0e1bf7d-7d78-4ea0-b270-245f912f01be.png)
 
 <hr>
 
