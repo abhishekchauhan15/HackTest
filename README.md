@@ -4,9 +4,9 @@ Hackathons + Contests => Hack Test
 
 **Website:** https://hacktestapi.herokuapp.com/
 
-**Workspace:**
+**Workspace:** https://www.postman.com/satellite-geoscientist-84411763/workspace/hacktest/collection/18446656-d9d6a99a-8ec4-4c8d-adae-149cf1bb1239?ctx=documentation
 
-**Video:**
+**Video:** https://youtu.be/N4EpjLnvJPk
 
 <hr>
 
